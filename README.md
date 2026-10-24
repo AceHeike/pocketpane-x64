@@ -18,7 +18,7 @@ PocketPane mirrors and controls Android phones wirelessly from macOS and Windows
 
 | Platform | Download | Package |
 | --- | --- | --- |
-| macOS 14+, Apple Silicon | [PocketPane 0.2.0 for macOS](https://github.com/tobwil/pocketpane/releases/download/v0.2.0/PocketPane-0.2.0-macOS-arm64.zip) | Native SwiftUI app with ADB and scrcpy included |
+| macOS 14+, Intel x64 / Apple Silicon | [PocketPane 0.2.0 for macOS](https://github.com/tobwil/pocketpane/releases/download/v0.2.0/PocketPane-0.2.0-macOS-arm64.zip) | Native SwiftUI app with ADB and scrcpy included |
 | Windows 10+, x64 | [PocketPane 0.2.0 for Windows](https://github.com/tobwil/pocketpane/releases/download/v0.2.0/PocketPane-0.2.0-Windows-x64.zip) | Portable folder with PocketPane.exe, ADB, and scrcpy included |
 
 You can also browse the [latest release](https://github.com/tobwil/pocketpane/releases/latest) and its SHA-256 checksum files.
