@@ -251,12 +251,7 @@ scrcpy is licensed under the [Apache License
 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for included components
 and notices.
 
-The original PocketPane project was created by
-[tobwil](https://github.com/tobwil/pocketpane). This fork's principal
-change is the custom macOS application icon and its focus on
-distributing an Intel macOS build. Please report issues specific to this
-fork here; for upstream development and Windows versions, use the
-[original repository](https://github.com/tobwil/pocketpane).
+The original PocketPane project was created by [tobwil](https://github.com/tobwil/pocketpane). This fork contains a custom macOS application icon and an Intel (x86_64) build, created primarily for personal use on Intel-based Macs. It is an independent, personal adaptation of the original project and is not an official release. There is no commitment to provide future updates, additional builds, or ongoing maintenance. For the original project, upstream development, and Windows versions, please visit the [original repository](https://github.com/tobwil/pocketpane).
 
 Android is a trademark of Google LLC. macOS is a trademark of Apple
 Inc. PocketPane is an independent project and is not affiliated with
