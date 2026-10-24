@@ -83,9 +83,6 @@ Only do this if you trust the copy you downloaded and its source.
 
 ### Mirroring Options & Real mirroring
 
-Search the apps installed on the connected phone and launch one in a
-separate desktop window.
-
 ![PocketPane dashboard in Dark Mode - Start Mirroring](https://github.com/user-attachments/assets/765389fc-12d5-4299-940d-f6e621b2aaaf)
 ![PocketPane Real Mirroring in Dark Mode](https://github.com/user-attachments/assets/7cf84a71-d6e2-4dde-b13b-e3af081805f5)
 
