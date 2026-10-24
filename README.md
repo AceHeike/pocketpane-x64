@@ -1,12 +1,10 @@
-# PocketPane -- Intel Mac Edition
+# PocketPane — Intel Mac Edition
 
 **Your Android, right here.**
 
 This repository is an independent fork of
-[PocketPane](https://github.com/tobwil/pocketpane), a desktop app for
-mirroring and controlling Android devices using
-[scrcpy](https://github.com/Genymobile/scrcpy) and Android Debug Bridge
-(ADB).
+[PocketPane](https://github.com/tobwil/pocketpane), a desktop app for mirroring and controlling Android devices using
+[scrcpy](https://github.com/Genymobile/scrcpy) and Android Debug Bridge (ADB).
 
 ## About this fork
 
@@ -18,13 +16,9 @@ upstream PocketPane project.
 
 -   **Platform distributed by this fork:** macOS Intel (`x86_64`)
 -   **Minimum macOS version:** macOS 14 Sonoma or newer
--   **Tested on:** Intel MacBook Pro (16-inch, 2019), running macOS
-    Sequoia 15.8.1
--   **Application:** native SwiftUI app bundle, with ADB and scrcpy
-    runtime files included
--   **Windows builds:** not distributed or supported by this fork. For
-    the original project and its platform offerings, visit [the upstream
-    PocketPane repository](https://github.com/tobwil/pocketpane).
+-   **Tested on:** Intel MacBook Pro (16-inch, 2019), running macOS Sequoia 15.8.1
+-   **Application:** native SwiftUI app bundle, with ADB and scrcpy runtime files included
+-   **Windows builds:** not distributed or supported by this fork. For the original project and its platform offerings, visit [the upstream PocketPane repository](https://github.com/tobwil/pocketpane).
 
 This is an independent community fork, not an official release of the
 original project. Compatibility beyond the tested Mac and macOS version
@@ -41,11 +35,9 @@ upstream Apple Silicon package as a substitute for this build.
 
 ### Install and open
 
-1.  Download the macOS Intel ZIP from this fork's Releases page and
-    extract it.
+1.  Download the macOS Intel ZIP from this fork's Releases page and extract it.
 2.  Move **PocketPane.app** to your **Applications** folder.
-3.  Open PocketPane and follow the [First connection](#first-connection)
-    guide below.
+3.  Open PocketPane and follow the [First connection](#first-connection) guide below.
 
 The application is currently **ad-hoc signed and not notarized by
 Apple**. If macOS blocks the first launch, open **System Settings →
@@ -54,19 +46,19 @@ Only do this if you trust the copy you downloaded and its source.
 
 ## What PocketPane does
 
--   **Cable-free mirroring and control** --- pair Android 11 or newer
+-   **Cable-free mirroring and control** — pair Android 11 or newer
     using its Wireless debugging pairing code, then reconnect over your
     local network.
--   **Low-latency video and audio** --- scrcpy provides the mirroring
+-   **Low-latency video and audio** — scrcpy provides the mirroring
     engine while PocketPane manages discovery, pairing, options, and
     recovery.
--   **Android apps as desktop windows** --- search installed apps and
+-   **Android apps as desktop windows** — search installed apps and
     open an app in its own scrcpy virtual display.
--   **Files and captures** --- drop files into PocketPane, save PNG
+-   **Files and captures** — drop files into PocketPane, save PNG
     screenshots, and record MP4 presentations.
--   **Presentation controls** --- show touches, keep the device awake,
+-   **Presentation controls** — show touches, keep the device awake,
     hide window borders, or turn the physical phone screen off.
--   **Local and private** --- no user account, telemetry,
+-   **Local and private** — no user account, telemetry,
     advertisements, cloud relay, or phone companion app.
 
 ### macOS extras
@@ -84,7 +76,9 @@ Only do this if you trust the copy you downloaded and its source.
 ### Mirroring Options & Real mirroring
 
 ![PocketPane dashboard in Dark Mode - Start Mirroring](https://github.com/user-attachments/assets/765389fc-12d5-4299-940d-f6e621b2aaaf)
-![PocketPane Real Mirroring in Dark Mode](https://github.com/user-attachments/assets/7cf84a71-d6e2-4dde-b13b-e3af081805f5)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7cf84a71-d6e2-4dde-b13b-e3af081805f5" alt="Android phone mirrored wirelessly in a PocketPane window" width="500">
+</p>
 
 ## First connection
 
@@ -155,12 +149,6 @@ open dist/PocketPane.app
 ```
 
 The resulting application bundle is located at `dist/PocketPane.app`.
-
-To build a distributable DMG, if needed:
-
-``` zsh
-zsh scripts/build-dmg.sh
-```
 
 The build downloads the official scrcpy 4.0 archive for the current CPU
 architecture, verifies its published SHA-256 checksum, and embeds the
