@@ -1,184 +1,263 @@
-# PocketPane
+# PocketPane --- Intel Mac Edition
 
 **Your Android, right here.**
 
-PocketPane mirrors and controls Android phones wirelessly from macOS and Windows. It wraps the proven [scrcpy](https://github.com/Genymobile/scrcpy) and Android Debug Bridge tools in a desktop UI—no terminal, cloud account, phone companion app, or cable required after pairing.
+This repository is an independent fork of
+[PocketPane](https://github.com/tobwil/pocketpane), a desktop app for
+mirroring and controlling Android devices using
+[scrcpy](https://github.com/Genymobile/scrcpy) and Android Debug Bridge
+(ADB).
 
-[![Latest release](https://img.shields.io/github/v/release/tobwil/pocketpane?display_name=tag&sort=semver)](https://github.com/tobwil/pocketpane/releases/latest)
-[![macOS 14+](https://img.shields.io/badge/macOS-14%2B-111111?logo=apple)](https://github.com/tobwil/pocketpane/releases/latest)
-[![Windows 10+](https://img.shields.io/badge/Windows-10%2B-0078D4?logo=windows&logoColor=white)](https://github.com/tobwil/pocketpane/releases/latest)
-[![scrcpy 4.0](https://img.shields.io/badge/scrcpy-4.0-3DDC84?logo=android&logoColor=white)](https://github.com/Genymobile/scrcpy)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Website](https://img.shields.io/badge/website-pocketpane.app-0A84FF)](https://pocketpane.app)
+## About this fork
 
-![PocketPane dashboard in Light Mode](https://github.com/user-attachments/assets/fab59bf3-51be-40e2-a71a-136800febed0#gh-light-mode-only)
-![PocketPane dashboard in Dark Mode](https://github.com/user-attachments/assets/fb04e6a1-e70c-4661-a681-bd8037fc358b#gh-dark-mode-only)
+This fork is intentionally focused on **a native macOS build for Intel
+Macs (`x86_64`)**. Compared with the upstream project, the main change
+made here is a custom application icon, giving the macOS executable a
+distinct identity. The app's functionality is otherwise based on the
+upstream PocketPane project.
+
+-   **Platform distributed by this fork:** macOS Intel (`x86_64`)
+-   **Minimum macOS version:** macOS 14 Sonoma or newer
+-   **Tested on:** Intel MacBook Pro (16-inch, 2019), running macOS
+    Sequoia 15.8.1
+-   **Application:** native SwiftUI app bundle, with ADB and scrcpy
+    runtime files included
+-   **Windows builds:** not distributed or supported by this fork. For
+    the original project and its platform offerings, visit [the upstream
+    PocketPane repository](https://github.com/tobwil/pocketpane).
+
+This is an independent community fork, not an official release of the
+original project. Compatibility beyond the tested Mac and macOS version
+has not been exhaustively verified.
 
 ## Download
 
-| Platform | Download | Package |
-| --- | --- | --- |
-| macOS 14+, Intel x64 / Apple Silicon | [PocketPane 0.2.0 for macOS](https://github.com/tobwil/pocketpane/releases/download/v0.2.0/PocketPane-0.2.0-macOS-arm64.zip) | Native SwiftUI app with ADB and scrcpy included |
-| Windows 10+, x64 | [PocketPane 0.2.0 for Windows](https://github.com/tobwil/pocketpane/releases/download/v0.2.0/PocketPane-0.2.0-Windows-x64.zip) | Portable folder with PocketPane.exe, ADB, and scrcpy included |
+Download the macOS Intel build from this repository's
+[Releases](https://github.com/AceHeike/pocketpane-x64/releases) page
+when a packaged release is available.
 
-You can also browse the [latest release](https://github.com/tobwil/pocketpane/releases/latest) and its SHA-256 checksum files.
+The package is intended for **Intel Macs (`x86_64`)**. Do not use the
+upstream Apple Silicon package as a substitute for this build.
 
-### macOS
+### Install and open
 
-1. Download and extract the macOS ZIP.
-2. Drag **PocketPane** into **Applications**.
-3. Launch PocketPane and follow the wireless pairing guide.
+1.  Download the macOS Intel ZIP from this fork's Releases page and
+    extract it.
+2.  Move **PocketPane.app** to your **Applications** folder.
+3.  Open PocketPane and follow the [First connection](#first-connection)
+    guide below.
 
-The current build is ad-hoc signed but not yet Apple-notarized. If macOS blocks the first launch, open **System Settings → Privacy & Security** and choose **Open Anyway**.
-
-### Windows
-
-1. Download and extract the complete Windows ZIP.
-2. Keep PocketPane.exe, PocketPane.Windows.ps1, and the bin folder together.
-3. Double-click **PocketPane.exe**.
-
-No separate ADB or scrcpy installation is needed. The executable is not yet code-signed, so Windows SmartScreen may display a warning.
+The application is currently **ad-hoc signed and not notarized by
+Apple**. If macOS blocks the first launch, open **System Settings →
+Privacy & Security** and use **Open Anyway** if that option is offered.
+Only do this if you trust the copy you downloaded and its source.
 
 ## What PocketPane does
 
-- **Cable-free mirroring and control** — pair Android 11+ with the standard Wireless debugging code, then reconnect over the local network.
-- **Low-latency video and audio** — scrcpy provides the fast mirroring engine while PocketPane manages discovery, pairing, options, and recovery.
-- **Android apps as desktop windows** — search installed apps and open one on its own scrcpy virtual display.
-- **Files and captures** — drop files into PocketPane, save PNG screenshots, and record MP4 presentations.
-- **Presentation controls** — show touches, keep the device awake, hide window borders, or turn the physical phone screen off.
-- **Local and private** — no account, telemetry, advertisements, cloud relay, or phone companion app.
+-   **Cable-free mirroring and control** --- pair Android 11 or newer
+    using its Wireless debugging pairing code, then reconnect over your
+    local network.
+-   **Low-latency video and audio** --- scrcpy provides the mirroring
+    engine while PocketPane manages discovery, pairing, options, and
+    recovery.
+-   **Android apps as desktop windows** --- search installed apps and
+    open an app in its own scrcpy virtual display.
+-   **Files and captures** --- drop files into PocketPane, save PNG
+    screenshots, and record MP4 presentations.
+-   **Presentation controls** --- show touches, keep the device awake,
+    hide window borders, or turn the physical phone screen off.
+-   **Local and private** --- no user account, telemetry,
+    advertisements, cloud relay, or phone companion app.
 
 ### macOS extras
 
-- Native SwiftUI interface with a single Light/Dark Mode toggle
-- Menu bar mode for nearby-device status and one-click actions
-- Automatic clipboard synchronization while mirroring
-- Keyboard-driven app launcher with ⌘K
+-   Native SwiftUI interface with a Light/Dark Mode toggle.
+-   Menu bar mode for nearby-device status and one-click actions.
+-   Automatic clipboard synchronization while mirroring.
+-   Keyboard-driven app launcher with **⌘K**.
 
-### Windows app
+## Screenshots
 
-- Portable PocketPane.exe launcher
-- PowerShell/WPF desktop interface
-- Wireless pairing, Wi-Fi connection, mirroring, screenshots, recordings, file drop, and app launching
-- Reproducible Windows x64 packaging through GitHub Actions
+![PocketPane dashboard in Light
+Mode](https://github.com/user-attachments/assets/fab59bf3-51be-40e2-a71a-136800febed0#gh-light-mode-only)
+![PocketPane dashboard in Dark
+Mode](https://github.com/user-attachments/assets/fb04e6a1-e70c-4661-a681-bd8037fc358b#gh-dark-mode-only)
 
-## Android app launcher
+### Android app launcher
 
-Search the apps installed on the connected phone and launch one in a separate desktop window.
+Search the apps installed on the connected phone and launch one in a
+separate desktop window.
 
-![PocketPane Android app launcher in Light Mode](https://github.com/user-attachments/assets/93230df0-6968-4fa9-b76d-b2a9750f8f10#gh-light-mode-only)
-![PocketPane Android app launcher in Dark Mode](https://github.com/user-attachments/assets/90b860fe-ab6b-438d-abc4-45f3e93b3aee#gh-dark-mode-only)
+![PocketPane Android app launcher in Light
+Mode](https://github.com/user-attachments/assets/93230df0-6968-4fa9-b76d-b2a9750f8f10#gh-light-mode-only)
+![PocketPane Android app launcher in Dark
+Mode](https://github.com/user-attachments/assets/90b860fe-ab6b-438d-abc4-45f3e93b3aee#gh-dark-mode-only)
 
-## Real wireless mirroring
+### Wireless mirroring
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/486d71c5-3e6c-4d00-ac30-acfc4c16381c" alt="Pixel 10 Pro mirrored wirelessly in a PocketPane window" width="420">
-</p>
+![Android phone mirrored wirelessly in a PocketPane
+window](https://github.com/user-attachments/assets/486d71c5-3e6c-4d00-ac30-acfc4c16381c)
 
 ## First connection
 
-1. On Android, open **Settings → System → Developer options → Wireless debugging**.
-2. Enable Wireless debugging and allow the current Wi-Fi network.
-3. Tap **Pair device with pairing code** and keep that dialog open.
-4. Enter the displayed pairing IP/port and six-digit code in PocketPane.
-5. Close the pairing dialog on the phone after pairing succeeds.
-6. PocketPane discovers the separate connection endpoint. If necessary, enter the IP/port shown on the main Wireless debugging screen.
-7. Select the phone and start mirroring.
+1.  On Android, open **Settings → System → Developer options → Wireless
+    debugging**. Menu names can vary by Android manufacturer.
+2.  Enable **Wireless debugging** and ensure the phone and Mac are
+    connected to the same local network.
+3.  Tap **Pair device with pairing code** and keep that dialog open.
+4.  Enter the displayed pairing IP address, port, and six-digit code in
+    PocketPane.
+5.  Close the pairing dialog on the phone after pairing succeeds.
+6.  PocketPane discovers the separate connection endpoint. If necessary,
+    enter the IP address and port shown on the main Wireless debugging
+    screen.
+7.  Select the phone and start mirroring.
 
-The temporary pairing port and the normal connection port are intentionally different. PocketPane keeps them separate and shows the active Wi-Fi endpoint with the connected device.
+The temporary pairing port and the normal connection port are different.
+Use the pairing port for pairing and the connection endpoint shown on
+the main Wireless debugging screen for the subsequent connection.
 
-A one-time authorized USB connection remains available as an optional fallback for switching ADB to Wi-Fi.
+A one-time authorized USB connection is also available as an optional
+fallback for switching ADB to Wi-Fi.
 
 ## Requirements
 
+### Mac
+
+-   Intel Mac with an `x86_64` processor.
+-   macOS 14 Sonoma or newer.
+-   Network connectivity between the Mac and Android device for wireless
+    use.
+
+This fork has been built and tested on an Intel MacBook Pro (16-inch,
+2019) running macOS Sequoia 15.8.1. Other Intel Mac models and macOS
+versions have not all been individually tested.
+
 ### Android
 
-- Android 11 or newer for cable-free pairing
-- Developer options and **Wireless debugging** enabled
-- Phone and computer on the same local network
+-   Android 11 or newer for wireless pairing.
+-   Developer options and **Wireless debugging** enabled.
+-   Phone and Mac connected to the same local network.
 
-PocketPane is developed with a Pixel 10 Pro. The underlying scrcpy engine supports Android API 21 and newer, while wireless pairing itself requires Android 11 or newer.
-
-### macOS
-
-- Apple Silicon Mac
-- macOS 14 Sonoma or newer
-
-### Windows
-
-- x64 PC
-- Windows 10 or newer
-- Windows PowerShell 5.1 with WPF support (included with supported Windows versions)
+The underlying scrcpy engine supports older Android versions, but
+PocketPane's wireless pairing workflow requires Android 11 or newer.
 
 ## Build from source
 
-### macOS
+The native macOS app has no third-party Swift package dependencies. The
+build script fetches the official scrcpy tools for the current CPU
+architecture, verifies the published SHA-256 checksum, and packages the
+required runtime files into the app bundle. The custom icon is included
+from `assets/macos/AppIcon.icns`.
 
-The native app has no third-party Swift package dependencies.
+### Prerequisites
 
-    git clone https://github.com/tobwil/pocketpane.git
-    cd pocketpane
-    chmod +x scripts/*.sh
-    ./scripts/build-app.sh
-    open dist/PocketPane.app
+-   An Intel Mac (`x86_64`) running macOS 14 or newer.
+-   Xcode Command Line Tools, including Swift and the macOS SDK.
+-   Git and a working internet connection to download the required
+    scrcpy archive.
 
-The build downloads the official scrcpy 4.0 archive for the current CPU architecture, verifies its published SHA-256 checksum, and embeds the required runtime files.
+### Build
 
-### Windows
+``` zsh
+git clone https://github.com/AceHeike/pocketpane-x64.git
+cd pocketpane-x64
+zsh scripts/build-app.sh
+open dist/PocketPane.app
+```
 
-Install the development tools and start the source version:
+The resulting application bundle is located at `dist/PocketPane.app`.
 
-    Windows\Install-Tools-Windows.cmd
-    Windows\Start-PocketPane-Windows.cmd
+To build a distributable DMG, if needed:
 
-Build the portable Windows release and PocketPane.exe on Windows:
+``` zsh
+zsh scripts/build-dmg.sh
+```
 
-    .\Windows\Build-Windows-Release.ps1 -Version 0.2.0
-
-The Windows build verifies the official scrcpy archive checksum and writes the ZIP plus its checksum to dist. The [Windows release workflow](.github/workflows/windows-release.yml) performs the same build on GitHub Actions.
-
-More Windows details are in [Windows/README.md](Windows/README.md).
+The build downloads the official scrcpy 4.0 archive for the current CPU
+architecture, verifies its published SHA-256 checksum, and embeds the
+required runtime files. The application is ad-hoc signed by the build
+process; this does not constitute Apple notarization.
 
 ## Technology
 
-| Layer | macOS | Windows | Purpose |
-| --- | --- | --- | --- |
-| Desktop UI | Swift 6, SwiftUI | PowerShell 5.1, WPF | Pairing, device selection, options, and launch flows |
-| OS integration | AppKit, Foundation | .NET Framework, Windows dialogs | Menu bar, processes, files, save panels, and drag-and-drop |
-| Mirroring | scrcpy 4.0 | scrcpy 4.0 | Video, audio, input control, recording, and virtual displays |
-| Device transport | Android Debug Bridge | Android Debug Bridge | Secure pairing, TCP/IP connections, screenshots, and file transfer |
-| Discovery | ADB mDNS / Bonjour | ADB mDNS | Finds wireless pairing and connection services |
-| Packaging | Swift Package Manager, zsh | C# launcher, PowerShell, GitHub Actions | Self-contained platform downloads |
+  -----------------------------------------------------------------------
+  Layer                   macOS implementation    Purpose
+  ----------------------- ----------------------- -----------------------
+  Desktop UI              Swift 6, SwiftUI        Pairing, device
+                                                  selection, options, and
+                                                  launch flows
 
-PocketPane launches scrcpy as a managed subprocess instead of reimplementing its codec, audio, and Android control stack.
+  OS integration          AppKit, Foundation      Menu bar, processes,
+                                                  files, save panels, and
+                                                  drag-and-drop
+
+  Mirroring               scrcpy 4.0              Video, audio, input
+                                                  control, recording, and
+                                                  virtual displays
+
+  Device transport        Android Debug Bridge    Pairing, TCP/IP
+                          (ADB)                   connections,
+                                                  screenshots, and file
+                                                  transfer
+
+  Discovery               ADB mDNS / Bonjour      Finds wireless pairing
+                                                  and connection services
+
+  Packaging               Swift Package Manager,  Builds the macOS app
+                          zsh                     bundle
+  -----------------------------------------------------------------------
+
+PocketPane launches scrcpy as a managed subprocess rather than
+reimplementing its codec, audio, and Android control stack.
 
 ## Repository layout
 
-    Sources/PocketPane/             SwiftUI macOS application
-    Sources/PocketPaneCore/         Swift ADB/scrcpy parsing and process utilities
-    Sources/PocketPaneCoreChecks/   Executable core checks
-    Windows/                        WPF app, EXE launcher, and Windows packager
-    scripts/build-app.sh            macOS app-bundle packaging
-    scripts/build-dmg.sh            macOS DMG and SHA-256 generation
-    scripts/fetch-tools.sh          Verified macOS scrcpy download
-    .github/workflows/              Automated Windows release packaging
+``` text
+Sources/PocketPane/             SwiftUI macOS application
+Sources/PocketPaneCore/         Swift ADB/scrcpy parsing and process utilities
+Sources/PocketPaneCoreChecks/   Executable core checks
+assets/macos/AppIcon.icns       Custom macOS application icon
+scripts/build-app.sh            macOS app-bundle build and packaging
+scripts/build-dmg.sh            macOS DMG and SHA-256 generation
+scripts/fetch-tools.sh          Verified scrcpy download for macOS
+```
+
+The fork may retain other files inherited from upstream, but this README
+documents only the macOS Intel edition distributed by this repository.
+Windows downloads and Windows build instructions belong to the [original
+PocketPane project](https://github.com/tobwil/pocketpane).
 
 ## Privacy and security
 
-- Screen, audio, clipboard, and file data travel locally between the desktop and Android device through ADB/scrcpy.
-- PocketPane has no analytics SDK, user account, ad framework, cloud relay, or remote service.
-- ADB stores its normal authentication keys in the current user profile.
-- Android provides a **Forget** action for paired computers under Wireless debugging.
-- Only pair on networks you trust.
+-   Screen, audio, clipboard, and file data travel locally between the
+    Mac and Android device through ADB/scrcpy.
+-   PocketPane does not include an analytics SDK, user account, ad
+    framework, cloud relay, or remote service.
+-   ADB stores its normal authentication keys in the current user's
+    profile.
+-   Android provides a **Forget** action for paired computers under
+    Wireless debugging.
+-   Only pair devices on networks you trust.
 
-## License
+## License and acknowledgements
 
+This fork retains the upstream project's licensing and notices.
 PocketPane source code is available under the [MIT License](LICENSE).
 
-PocketPane bundles or downloads the official scrcpy 4.0 distributions. scrcpy is licensed under the [Apache License 2.0](https://github.com/Genymobile/scrcpy/blob/master/LICENSE). See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for included components and notices.
+PocketPane bundles or downloads the official scrcpy 4.0 distribution.
+scrcpy is licensed under the [Apache License
+2.0](https://github.com/Genymobile/scrcpy/blob/master/LICENSE). See
+[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for included components
+and notices.
 
-Android is a trademark of Google LLC. macOS is a trademark of Apple Inc. Windows is a trademark of Microsoft Corporation. PocketPane is an independent project and is not affiliated with Google, Apple, Microsoft, Genymobile, or the scrcpy maintainers.
+The original PocketPane project was created by
+[tobwil](https://github.com/tobwil/pocketpane). This fork's principal
+change is the custom macOS application icon and its focus on
+distributing an Intel macOS build. Please report issues specific to this
+fork here; for upstream development and Windows versions, use the
+[original repository](https://github.com/tobwil/pocketpane).
 
-## Website
-
-[pocketpane.app](https://pocketpane.app)
+Android is a trademark of Google LLC. macOS is a trademark of Apple
+Inc. PocketPane is an independent project and is not affiliated with
+Google, Apple, Genymobile, or the scrcpy maintainers.
