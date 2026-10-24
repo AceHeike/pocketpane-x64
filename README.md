@@ -1,4 +1,4 @@
-# PocketPane --- Intel Mac Edition
+# PocketPane -- Intel Mac Edition
 
 **Your Android, right here.**
 
@@ -78,25 +78,16 @@ Only do this if you trust the copy you downloaded and its source.
 
 ## Screenshots
 
-![PocketPane dashboard in Light
-Mode](https://github.com/user-attachments/assets/fab59bf3-51be-40e2-a71a-136800febed0#gh-light-mode-only)
-![PocketPane dashboard in Dark
-Mode](https://github.com/user-attachments/assets/fb04e6a1-e70c-4661-a681-bd8037fc358b#gh-dark-mode-only)
+![PocketPane dashboard in Light Mode](https://github.com/user-attachments/assets/538afcc4-6eeb-40f1-9c38-5683e18bf2e7)
+![PocketPane dashboard in Dark Mode](https://github.com/user-attachments/assets/1af9e27c-0321-4fa9-81c5-ea139d8e1822)
 
-### Android app launcher
+### Mirroring Options & Real mirroring
 
 Search the apps installed on the connected phone and launch one in a
 separate desktop window.
 
-![PocketPane Android app launcher in Light
-Mode](https://github.com/user-attachments/assets/93230df0-6968-4fa9-b76d-b2a9750f8f10#gh-light-mode-only)
-![PocketPane Android app launcher in Dark
-Mode](https://github.com/user-attachments/assets/90b860fe-ab6b-438d-abc4-45f3e93b3aee#gh-dark-mode-only)
-
-### Wireless mirroring
-
-![Android phone mirrored wirelessly in a PocketPane
-window](https://github.com/user-attachments/assets/486d71c5-3e6c-4d00-ac30-acfc4c16381c)
+![PocketPane dashboard in Dark Mode - Start Mirroring](https://github.com/user-attachments/assets/765389fc-12d5-4299-940d-f6e621b2aaaf)
+![PocketPane Real Mirroring in Dark Mode](https://github.com/user-attachments/assets/7cf84a71-d6e2-4dde-b13b-e3af081805f5)
 
 ## First connection
 
@@ -181,32 +172,14 @@ process; this does not constitute Apple notarization.
 
 ## Technology
 
-  -----------------------------------------------------------------------
-  Layer                   macOS implementation    Purpose
-  ----------------------- ----------------------- -----------------------
-  Desktop UI              Swift 6, SwiftUI        Pairing, device
-                                                  selection, options, and
-                                                  launch flows
-
-  OS integration          AppKit, Foundation      Menu bar, processes,
-                                                  files, save panels, and
-                                                  drag-and-drop
-
-  Mirroring               scrcpy 4.0              Video, audio, input
-                                                  control, recording, and
-                                                  virtual displays
-
-  Device transport        Android Debug Bridge    Pairing, TCP/IP
-                          (ADB)                   connections,
-                                                  screenshots, and file
-                                                  transfer
-
-  Discovery               ADB mDNS / Bonjour      Finds wireless pairing
-                                                  and connection services
-
-  Packaging               Swift Package Manager,  Builds the macOS app
-                          zsh                     bundle
-  -----------------------------------------------------------------------
+| Layer | macOS | Windows | Purpose |
+| --- | --- | --- | --- |
+| Desktop UI | Swift 6, SwiftUI | PowerShell 5.1, WPF | Pairing, device selection, options, and launch flows |
+| OS integration | AppKit, Foundation | .NET Framework, Windows dialogs | Menu bar, processes, files, save panels, and drag-and-drop |
+| Mirroring | scrcpy 4.0 | scrcpy 4.0 | Video, audio, input control, recording, and virtual displays |
+| Device transport | Android Debug Bridge | Android Debug Bridge | Secure pairing, TCP/IP connections, screenshots, and file transfer |
+| Discovery | ADB mDNS / Bonjour | ADB mDNS | Finds wireless pairing and connection services |
+| Packaging | Swift Package Manager, zsh | C# launcher, PowerShell, GitHub Actions | Self-contained platform downloads |
 
 PocketPane launches scrcpy as a managed subprocess rather than
 reimplementing its codec, audio, and Android control stack.
