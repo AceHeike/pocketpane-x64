@@ -243,6 +243,7 @@ PocketPane project](https://github.com/tobwil/pocketpane).
 ## License and acknowledgements
 
 This fork retains the upstream project's licensing and notices.
+
 PocketPane source code is available under the [MIT License](LICENSE).
 
 PocketPane bundles or downloads the official scrcpy 4.0 distribution.
