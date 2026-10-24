@@ -20,6 +20,7 @@ swift build -c release
 rm -rf "$APP"
 rm -rf "$BUILD_DIR/DroidMirror.app"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
+cp "$ROOT/assets/macos/AppIcon.icns" "$APP/Contents/Resources/AppIcon.icns"
 cp "$ROOT/.build/release/$APP_NAME" "$APP/Contents/MacOS/$APP_NAME"
 mkdir -p "$APP/Contents/Resources/bin" "$APP/Contents/Resources/Licenses"
 cp "$TOOLS_DIR/scrcpy" "$APP/Contents/Resources/bin/"
@@ -37,6 +38,7 @@ cat > "$APP/Contents/Info.plist" <<'PLIST'
     <key>CFBundleDevelopmentRegion</key><string>en</string>
     <key>CFBundleDisplayName</key><string>PocketPane</string>
     <key>CFBundleExecutable</key><string>PocketPane</string>
+    <key>CFBundleIconFile</key><string>AppIcon</string>
     <key>CFBundleIdentifier</key><string>app.pocketpane.mac</string>
     <key>CFBundleInfoDictionaryVersion</key><string>6.0</string>
     <key>CFBundleName</key><string>PocketPane</string>
